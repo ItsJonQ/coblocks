@@ -47,6 +47,7 @@
 
 .wp-block-coblocks-events__title {
 	font-weight: 700;
+	font-size: 1.5em;
 	margin-bottom: map-get($spacing, 1);
 }
 
@@ -71,15 +72,8 @@
 
 .wp-block-coblocks-events__time {
 	font-weight: 700;
+	font-size: 1.5em;
 	margin-bottom: map-get($spacing, 1);
-}
-
-.wp-block-coblocks-events__year,
-.wp-block-coblocks-events__month,
-.wp-block-coblocks-events__time,
-.wp-block-coblocks-events__location,
-.wp-block-coblocks-events__description {
-	font-size: 0.75em;
 }
 
 .wp-block-coblocks-events__description {
