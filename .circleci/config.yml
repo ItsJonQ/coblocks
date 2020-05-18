@@ -210,6 +210,17 @@ jobs:
     steps:
       - checkout
       - run:
+          # Our primary container isn't MYSQL so run a sleep command until it's ready.
+          name: Waiting for MySQL to be ready
+          command: |
+            for i in `seq 1 10`;
+            do
+              nc -z 127.0.0.1 3306 && echo Success && exit 0
+              echo -n .
+              sleep 1
+            done
+            echo Failed waiting for MySQL && exit 1
+      - run:
           name: "Setup Environment Variables"
           command: |
             echo "export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH" >> $BASH_ENV
@@ -231,6 +242,11 @@ jobs:
       - run:
           name: Install node packages
           command: npm install
+      - run:
+          name: Install MariaDB
+          command: |
+            sudo apt-get update
+            sudo apt-get install mariadb-client
       - save_cache:
           key: e2e-dependency-cache--{{ checksum "package.json" }}
           paths:
@@ -283,6 +299,18 @@ jobs:
     steps:
       - checkout
       - run:
+          # Our primary container isn't MYSQL so run a sleep command until it's ready.
+          name: Waiting for MySQL to be ready
+          command: |
+            for i in `seq 1 10`;
+            do
+              nc -z 127.0.0.1 3306 && echo Success && exit 0
+              echo -n .
+              sleep 1
+            done
+            echo Failed waiting for MySQL && exit 1
+      - run:
+      - run:
           name: "Setup Environment Variables"
           command: |
             echo "export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH" >> $BASH_ENV
@@ -304,6 +332,11 @@ jobs:
       - run:
           name: Install node packages
           command: npm install
+      - run:
+          name: Install MariaDB
+          command: |
+            sudo apt-get update
+            sudo apt-get install mariadb-client
       - save_cache:
           key: e2e-dependency-cache--{{ checksum "package.json" }}
           paths:
