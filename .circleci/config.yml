@@ -310,7 +310,6 @@ jobs:
             done
             echo Failed waiting for MySQL && exit 1
       - run:
-      - run:
           name: "Setup Environment Variables"
           command: |
             echo "export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH" >> $BASH_ENV
