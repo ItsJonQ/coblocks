@@ -96,7 +96,7 @@ describe( 'Block: Food Item', () => {
 		helpers.upload.imageToBlock('coblocks/food-item');
 
 		// Assert that the image was added.
-		cy.get( '.wp-block[data-type="coblocks/food-item"]:nth-of-type(1) figure img[src*="http"]' )
+		cy.get( 'div.wp-block[data-type="coblocks/food-item"] img[src*="http"]' )
 			.should( 'have.attr', 'src' )
 			.should( 'include', imageBase );
 
