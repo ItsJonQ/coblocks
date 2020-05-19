@@ -41,8 +41,7 @@ describe( 'Test CoBlocks Gallery Offset Block', function() {
 
 		helpers.upload.imageToBlock( 'coblocks/gallery-offset' );
 
-		cy.get( '.coblocks-gallery--item' )
-			.find( 'img' )
+		cy.get( '.coblocks-gallery--item img[src*="http"]' )
 			.should( 'have.attr', 'src' )
 			.should( 'include', imageBase );
 

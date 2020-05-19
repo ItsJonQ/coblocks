@@ -16,8 +16,7 @@ describe( 'Test CoBlocks Replace Image extension', function() {
 
 		helpers.upload.imageToBlock( 'core/image' );
 
-		cy.get( 'figure.wp-block-image' )
-			.find( 'img' )
+		cy.get( 'figure.wp-block-image img[src*="http"]' )
 			.should( 'have.attr', 'src' )
 			.should( 'include', fileBase );
 

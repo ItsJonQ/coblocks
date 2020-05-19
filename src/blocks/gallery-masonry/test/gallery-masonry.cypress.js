@@ -44,8 +44,7 @@ describe( 'Test CoBlocks Gallery Masonry Block', function() {
 
 		helpers.upload.imageToBlock( 'coblocks/gallery-masonry' );
 
-		cy.get( '.coblocks-gallery--item' )
-			.find( 'img' )
+		cy.get( '.coblocks-gallery--item img[src*="http"]' )
 			.should( 'have.attr', 'src' )
 			.should( 'include', imageBase );
 

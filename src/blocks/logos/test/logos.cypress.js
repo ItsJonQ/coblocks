@@ -34,8 +34,7 @@ describe( 'Test CoBlocks Logos Block', function() {
 
 		helpers.upload.imageToBlock( 'coblocks/logos' );
 
-		cy.get( '.wp-block-coblocks-logos' )
-			.find( 'img' )
+		cy.get( '.wp-block-coblocks-logos img[src*="http"]' )
 			.should( 'have.attr', 'src' )
 			.should( 'include', imageBase );
 

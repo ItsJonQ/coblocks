@@ -41,8 +41,7 @@ describe( 'Test CoBlocks Gallery Stacked Block', function() {
 
 		helpers.upload.imageToBlock( 'coblocks/gallery-stacked' );
 
-		cy.get( '.coblocks-gallery--item' )
-			.find( 'img' )
+		cy.get( '.coblocks-gallery--item img[src*="http"]' )
 			.should( 'have.attr', 'src' )
 			.should( 'include', imageBase );
 

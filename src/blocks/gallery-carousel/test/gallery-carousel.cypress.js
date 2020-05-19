@@ -41,8 +41,7 @@ describe( 'Test CoBlocks Gallery Carousel Block', function() {
 
 		helpers.upload.imageToBlock( 'coblocks/gallery-carousel' );
 
-		cy.get( 'div.coblocks-gallery--item' )
-			.find( 'img' )
+		cy.get( 'div.coblocks-gallery--item img[src*="http"]' )
 			.should( 'have.attr', 'src' )
 			.should( 'include', imageBase );
 

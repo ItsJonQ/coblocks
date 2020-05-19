@@ -45,8 +45,7 @@ describe( 'Test CoBlocks Gallery Collage Block', function() {
 
 		helpers.upload.imageToBlock('coblocks/gallery-collage');
 
-		cy.get( '.wp-block-coblocks-gallery-collage__item' )
-			.find( 'img' )
+		cy.get( '.wp-block-coblocks-gallery-collage__item img[src*="http"]' )
 			.should( 'have.attr', 'src' )
 			.should( 'include', imageBase );
 
