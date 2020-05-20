@@ -378,8 +378,7 @@ jobs:
           command: |
             touch cypress.env.json
             echo '{"wpUsername":"admin","wpPassword":"password","testURL":"http://coblocks.test"}' | jq . > cypress.env.json
-            export MOZ_FORCE_DISABLE_E10S=1
-            ./node_modules/.bin/cypress run --config integrationFolder=./ --browser firefox --headless --record --parallel --group e2e-firefox --spec "$(cat /tmp/specstring)"
+            ./node_modules/.bin/cypress run --config integrationFolder=./ --browser firefox --record --parallel --group e2e-firefox --spec "$(cat /tmp/specstring)"
 
   i18n:
     docker:

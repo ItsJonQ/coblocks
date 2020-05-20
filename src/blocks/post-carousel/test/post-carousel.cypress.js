@@ -53,9 +53,13 @@ describe( 'Test CoBlocks Post Carousel Block', function() {
 	it( 'Test the post-carousel block custom classes.', function() {
 		helpers.addBlockToPost( 'coblocks/post-carousel', true );
 
-		cy.get( '.edit-post-sidebar' ).contains( /post carousel settings/i ).click( { force: true } );
+		cy.get( '.edit-post-sidebar' )
+			.contains( /post carousel settings/i )
+			.click( { force: true } );
 
-		cy.get( '.edit-post-sidebar' ).contains( /feed settings/i ).click( { force: true } );
+		cy.get( '.edit-post-sidebar' )
+			.contains( /feed settings/i )
+			.click( { force: true } );
 
 		helpers.addCustomBlockClass( 'my-custom-class', 'post-carousel' );
 
@@ -63,13 +67,11 @@ describe( 'Test CoBlocks Post Carousel Block', function() {
 
 		helpers.checkForBlockErrors( 'coblocks/post-carousel' );
 
-		cy.get( '.wp-block-coblocks-post-carousel' )
-			.should( 'have.class', 'my-custom-class' );
+		cy.get( '.my-custom-class > .coblocks-slick' ).should( 'exist' );
 
 		helpers.viewPage();
 
-		cy.get( '.wp-block-coblocks-post-carousel' )
-			.should( 'have.class', 'my-custom-class' );
+		cy.get( '.my-custom-class > .coblocks-slick' ).should( 'exist' );
 
 		helpers.editPage();
 	} );

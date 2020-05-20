@@ -44,9 +44,7 @@ describe( 'Test CoBlocks Media Card Block', function() {
 
 		helpers.upload.imageToBlock( 'coblocks/media-card' );
 
-		cy.get( 'figure.wp-block-coblocks-media-card__media-container img[src*="http"]' )
-			.should( 'have.attr', 'src' )
-			.should( 'include', imageBase );
+		cy.get( `img[src*="${imageBase}"]` );
 
 		helpers.savePage();
 
